@@ -6,12 +6,13 @@ import com.chain.http.*;
 import com.chain.signing.*;
 
 //reader part
+/*
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-
+*/
 public class CombinedSimulation
 {
 
@@ -31,20 +32,21 @@ public class CombinedSimulation
     private static Scanner scanner = new Scanner( System.in );
 
     //reader  part
+    /*
     public static final String IP_ADDRESS = new String("127.0.0.1");
     public static final int READER_PORT = 54322;
     private static Socket connection = null;
 
     private static PrintWriter out = null; //not in use
     private static BufferedReader in = null; //not in use
-
+*/
     public static void main(String[] args) throws Exception { 
         //reader setup
-
+/*
         init(); //init connection
         System.out.println("connection with server established");
         // Thread.sleep(2);
-        
+  */      
         Client client = new Client();      
         MockHsm.Key key = MockHsm.Key.create(client);
         HsmSigner.addKey(key, MockHsm.getSignerClient(client));
@@ -101,7 +103,7 @@ public class CombinedSimulation
         }
         while(true){
             System.out.println("1) I would like to check-in");
-            System.out.println("2) I can't find my luggage");
+            System.out.println("2) I would like to locate my luggage");
         
             //on real scneario: read tag barcode of the asset and inform the passenger about the luggage location.
             //in our simulation, print debug to after register to flight to see if my luggage is lost or no
@@ -490,9 +492,11 @@ public class CombinedSimulation
 
     /**
      * Initialize the connection and send username/password
-     * @throws IOException
-     * @throws InterruptedException
+
+     //* @throws IOException
+     //* @throws InterruptedException
      */
+    /*
     private static void  init() throws IOException, InterruptedException{
         connection = new Socket("127.0.0.1", READER_PORT);
         System.out.println("made the connection");
@@ -514,7 +518,7 @@ public class CombinedSimulation
         out.flush();
         // System.out.println(readFromReader(in));
     }
-
+*/
     /**
      * Get tags back from the alien reader
      * @return
@@ -548,10 +552,11 @@ public class CombinedSimulation
     
     /**
      * Read responses from the socket
-     * @param inBuf
-     * @return
-     * @throws IOException
+  //   * @param inBuf
+    // * @return
+    // * @throws IOException
      */
+    /*
     public static String readFromReader(BufferedReader inBuf) throws IOException{
         StringBuffer buf=new StringBuffer();
         System.out.println("in read from reader");
@@ -564,5 +569,6 @@ public class CombinedSimulation
         System.out.println("after while loop");
         return buf.toString();
     }
+    */
 
 }
